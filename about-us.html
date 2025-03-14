@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="eAyuqC7SENjhhU9B6RL1Tn2G2arxQut5F81UL082">
+    <script>
+        if ("0" == 1) {
+            document.addEventListener("DOMContentLoaded", function() {
+                window.snow();
+            });
+        }
+        window.addEventListener('keydown', function(e) {
+            var ctrlDown = true;
+            var ctrlKey = 17,
+                enterKey = 13;
+            $(document).keydown(function(e) {
+                if (e.keyCode == ctrlKey) ctrlDown = true;
+                if (e.keyCode == enterKey && ctrlDown) {
+                    if ($('#submit').length) {
+                        $('#submit').click();
+                    }
+                }
+            }).keyup(function(e) {
+                if (e.keyCode == ctrlKey) ctrlDown = false;
+            });
+        });
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        :root {
+            --secondary-50: #ffffff;
+            --secondary-100: #fafcff;
+            --secondary-200: #ebeef3;
+            --secondary-300: #bbbfd2;
+            --secondary-400: #808498;
+            --secondary-500: #606372;
+            --secondary-600: #4d4f60;
+            --secondary-700: #353741;
+            --secondary-800: #1c1c20;
+            --secondary-900: #000000;
+
+            --primary-50: #edf0ff;
+            --primary-100: #c6dbff;
+            --primary-200: #9bbefb;
+            --primary-300: #799cd8;
+            --primary-400: #5270fd;
+        }
+
+        .dark {
+            --secondary-50: #1e202d;
+            --secondary-100: #313441;
+            --secondary-200: #404351;
+            --secondary-300: #4f525e;
+            --secondary-400: #656874;
+            --secondary-500: #7d8091;
+            --secondary-600: #aeb2c2;
+            --secondary-700: #cacbd2;
+            --secondary-800: #f1f1f1;
+            --secondary-900: #ffffff;
+        }
+    </style>
+    <title>Keane Dev - About Us</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&amp;display=swap">
+
+    <link rel="preload" as="style" href="default/assets/app-bb7a7cfb.css" />
+    <link rel="modulepreload" href="default/assets/app-ff1ed6f4.js" />
+    <link rel="stylesheet" href="default/assets/app-bb7a7cfb.css" data-navigate-track="reload" />
+    <script type="module" src="default/assets/app-ff1ed6f4.js" data-navigate-track="reload"></script>
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="../cdn.jsdelivr.net/npm/remixicon%403.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="images/1736497991.png" type="image/png">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="font-sans bg-secondary-100 dark:bg-secondary-50 text-secondary-700">
+    <div id="app" class="min-h-screen">
+        <nav class="bg-secondary-50 dark:bg-secondary-100 dark:border-0 border-b-2 border-secondary-200 relative">
+            <div class="max-w-[1650px] mx-auto block md:flex items-center gap-x-10 px-5">
+                <div class="flex justify-between md:w-auto w-full items-center">
+                    <a href="index.html" class="flex items-center text-secondary-900 font-semibold text-lg py-2 gap-x-2 w-max">
+                        <img src="images/1736497991.png" alt="Keane Dev" class="w-10" />
+                        Keane Dev
+                    </a>
+                    <div class="flex md:hidden">
+                        <button type="button" class="button button-secondary-outline" onclick="openMobileMenu()">
+                            <i class="ri-menu-line"></i>
+                        </button>
+                    </div>
+                    <script>
+                        function openMobileMenu() {
+                            document.getElementById("mobile-menu").classList.toggle("hidden");
+                            document.getElementById("clientsNavBar").classList.toggle("hidden");
+                        }
+                    </script>
+                </div>
+                <div class="w-full justify-between gap-x-5 md:px-3 md:flex hidden" id="mobile-menu">
+                    <a href="index.html"
+                        class="md:px-2 py-3 flex items-center gap-x-1 hover:text-secondary-800 duration-300">
+                        Home
+                    </a>
+                    <a href="shared-hosting.html" 
+                        class="md:px-2 py-3 flex items-center gap-x-1 hover:text-secondary-800 duration-300">
+                        Shared Hosting
+                    </a>
+                    <div class="md:px-2 py-3 flex items-center gap-x-1 text-secondary-500 cursor-not-allowed">
+                        <span>VPS</span>
+                        <span class="text-xs bg-blue-100 dark:bg-secondary-200 text-blue-700 px-2 rounded">SOON</span>
+                    </div>
+                    <div class="md:px-2 py-3 flex items-center gap-x-1 text-secondary-500 cursor-not-allowed">
+                        <span>Dedicated</span>
+                        <span class="text-xs bg-blue-100 dark:bg-secondary-200 text-blue-700 px-2 rounded">SOON</span>
+                    </div>
+                    <a href="website-hosting.html" 
+                        class="md:px-2 py-3 flex items-center gap-x-1 hover:text-secondary-800 duration-300">
+                        Website Hosting
+                    </a>
+                    <div class="ml-auto flex items-center gap-x-1 justify-center md:pb-0 pb-4">
+                        <a href="https://host.keaneaudric.dev/" class="button button-secondary md:flex-none flex-1">
+                            Panel
+                        </a>
+
+                        <button class="m-1.5 button button-secondary-outline !font-normal" id="theme-toggle">
+                            <i class="ri-sun-line hidden dark:block"></i>
+                            <i class="ri-moon-line dark:hidden"></i>
+                        </button>
+                        <script>
+                            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                                '(prefers-color-scheme: dark)').matches));
+
+                            var themeToggleBtn = document.getElementById('theme-toggle');
+                            themeToggleBtn.addEventListener('click', function() {
+                                if (localStorage.getItem('theme')) {
+                                    if (localStorage.getItem('theme') === 'light') {
+                                        document.documentElement.classList.add('dark');
+                                        localStorage.setItem('theme', 'dark');
+                                    } else {
+                                        document.documentElement.classList.remove('dark');
+                                        localStorage.setItem('theme', 'light');
+                                    }
+                                } else {
+                                    if (document.documentElement.classList.contains('dark')) {
+                                        document.documentElement.classList.remove('dark');
+                                        localStorage.setItem('theme', 'light');
+                                    } else {
+                                        document.documentElement.classList.add('dark');
+                                        localStorage.setItem('theme', 'dark');
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="">
+            <div class="w-full flex flex-col min-h-[calc(100vh-64px)]">
+                <main class="grow">
+                    <style>
+                        .content-box {
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                        }
+                        .content-box:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                        }
+                    </style>
+
+                    <div class="content py-8">
+                        <div class="content-box mb-8">
+                            <div class="flex flex-row items-center mb-6">
+                                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-secondary-100 text-blue-500 rounded-md mr-3">
+                                    <i class="fas fa-building text-xl"></i>
+                                </div>
+                                <h1 class="text-3xl font-semibold text-secondary-900">About Keane Dev</h1>
+                            </div>
+                            
+                            <div class="prose prose-lg dark:prose-invert max-w-none">
+                                <h2>Our Story</h2>
+                                <p>Founded in 2024, Keane Dev emerged from a simple vision: to provide exceptional hosting solutions with unmatched reliability and performance. What began as a passion project by our founder, a dedicated system administrator with years of experience in the hosting industry, quickly evolved into a full-service hosting provider committed to excellence.</p>
+                                
+                                <p>From our humble beginnings offering basic shared hosting services, we've expanded our portfolio to include a comprehensive range of hosting solutions designed to meet the diverse needs of our growing customer base.</p>
+                                
+                                <h2>Our Mission</h2>
+                                <p>At Keane Dev, our mission is to empower businesses and individuals with hosting solutions that combine cutting-edge technology, exceptional reliability, and outstanding customer support. We believe that hosting shouldn't be complicated, expensive, or unreliable, and we work tirelessly to ensure our services exceed expectations in every way.</p>
+                                
+                                <h2>Our Infrastructure</h2>
+                                <p>We've built our infrastructure with one goal in mind: performance. Our services run on premium AMD Ryzen processors, utilize high-speed NVMe storage, and operate on networks engineered for minimal latency and maximum uptime.</p>
+                                
+                                <ul>
+                                    <li><strong>Data Centers:</strong> Strategically located in various regions to ensure optimal performance for clients worldwide</li>
+                                    <li><strong>Hardware:</strong> Enterprise-grade components from trusted manufacturers</li>
+                                    <li><strong>Network:</strong> Multiple tier-1 providers with automatic failover capabilities</li>
+                                    <li><strong>Security:</strong> Advanced DDoS protection and regular security audits</li>
+                                </ul>
+                                
+                                <h2>Our Team</h2>
+                                <p>Behind every successful hosting company is a team of dedicated professionals. Our staff consists of experienced system administrators, network engineers, and customer support specialists who share a passion for technology and a commitment to service excellence.</p>
+                                
+                                <h2>Looking Forward</h2>
+                                <p>As we continue to grow, we remain dedicated to our core principles: reliability, performance, and customer satisfaction. We're excited about upcoming service expansions, including VPS and dedicated server offerings, that will allow us to better serve our clients' evolving needs.</p>
+                                
+                                <p>Thank you for considering Keane Dev for your hosting requirements. We look forward to the opportunity to exceed your expectations and be a trusted partner in your online success.</p>
+                                
+                                <div class="bg-blue-50 dark:bg-secondary-100 border-l-4 border-blue-500 p-4 my-4">
+                                    <p class="font-medium"><strong>Legal Notice:</strong> Keane Dev operates as a service provider under an individual's name and is not an officially registered company or corporation. All services are provided by the individual operating under the trade name "Keane Dev".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12"></div>
+                </main>
+
+                <footer class="bg-secondary-50 dark:bg-secondary-100 border-t border-secondary-200 pt-8 pb-6 mt-auto">
+                    <div class="content">
+                        <div class="mb-8 text-center">
+                            <h3 class="text-xl font-semibold mb-3 text-secondary-900">Keane Dev</h3>
+                            <p class="text-sm text-secondary-600 mb-3 max-w-md mx-auto">Enterprise-grade hosting solutions designed for reliability and performance.</p>
+                            <div class="flex justify-center space-x-3 mt-3">
+                                <a href="https://github.com/keaneaudric01" target="_blank" class="text-secondary-600 hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="max-w-3xl mx-auto mb-8">
+                            <div class="grid grid-cols-3 gap-0">
+                                <div class="text-center px-4">
+                                    <h3 class="text-md font-semibold mb-4 text-secondary-900">Products</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li><a href="shared-hosting.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Shared Hosting</a></li>
+                                        <li><a href="website-hosting.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Website Hosting</a></li>
+                                        <li><a href="virtual-private-server.html" class="text-secondary-600 hover:text-primary-400 transition-colors">VPS (Soon)</a></li>
+                                        <li><a href="dedicated-server.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Dedicated (Soon)</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="text-center px-4 border-x border-secondary-200">
+                                    <h3 class="text-md font-semibold mb-4 text-secondary-900">Support</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li><a href="#" class="text-secondary-600 hover:text-primary-400 transition-colors">Knowledge Base</a></li>
+                                        <li><a href="contact.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Contact Support</a></li>
+                                        <li><a href="#" class="text-secondary-600 hover:text-primary-400 transition-colors">System Status</a></li>
+                                        <li><a href="#" class="text-secondary-600 hover:text-primary-400 transition-colors">Network Info</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="text-center px-4">
+                                    <h3 class="text-md font-semibold mb-4 text-secondary-900">Company</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li><a href="about-us.html" class="text-secondary-600 hover:text-primary-400 transition-colors">About Us</a></li>
+                                        <li><a href="terms-of-service.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Terms of Service</a></li>
+                                        <li><a href="privacy-policy.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Privacy Policy</a></li>
+                                        <li><a href="refund-policy.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Refund Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-secondary-200 pt-4 mt-4 text-sm text-center text-secondary-600">
+                            <p>&copy; 2024-2025 Keane Dev. All rights reserved.</p>
+                            <p class="mt-1">Designed for reliability, built for performance.</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

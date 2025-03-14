@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="eAyuqC7SENjhhU9B6RL1Tn2G2arxQut5F81UL082">
+    <script>
+        if ("0" == 1) {
+            document.addEventListener("DOMContentLoaded", function() {
+                window.snow();
+            });
+        }
+        window.addEventListener('keydown', function(e) {
+            var ctrlDown = true;
+            var ctrlKey = 17,
+                enterKey = 13;
+            $(document).keydown(function(e) {
+                if (e.keyCode == ctrlKey) ctrlDown = true;
+                if (e.keyCode == enterKey && ctrlDown) {
+                    if ($('#submit').length) {
+                        $('#submit').click();
+                    }
+                }
+            }).keyup(function(e) {
+                if (e.keyCode == ctrlKey) ctrlDown = false;
+            });
+        });
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        :root {
+            --secondary-50: #ffffff;
+            --secondary-100: #fafcff;
+            --secondary-200: #ebeef3;
+            --secondary-300: #bbbfd2;
+            --secondary-400: #808498;
+            --secondary-500: #606372;
+            --secondary-600: #4d4f60;
+            --secondary-700: #353741;
+            --secondary-800: #1c1c20;
+            --secondary-900: #000000;
+
+            --primary-50: #edf0ff;
+            --primary-100: #c6dbff;
+            --primary-200: #9bbefb;
+            --primary-300: #799cd8;
+            --primary-400: #5270fd;
+        }
+
+        .dark {
+            --secondary-50: #1e202d;
+            --secondary-100: #313441;
+            --secondary-200: #404351;
+            --secondary-300: #4f525e;
+            --secondary-400: #656874;
+            --secondary-500: #7d8091;
+            --secondary-600: #aeb2c2;
+            --secondary-700: #cacbd2;
+            --secondary-800: #f1f1f1;
+            --secondary-900: #ffffff;
+        }
+    </style>
+    <title>Keane Dev - Terms of Service</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&amp;display=swap">
+
+    <link rel="preload" as="style" href="default/assets/app-bb7a7cfb.css" />
+    <link rel="modulepreload" href="default/assets/app-ff1ed6f4.js" />
+    <link rel="stylesheet" href="default/assets/app-bb7a7cfb.css" data-navigate-track="reload" />
+    <script type="module" src="default/assets/app-ff1ed6f4.js" data-navigate-track="reload"></script>
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="../cdn.jsdelivr.net/npm/remixicon%403.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="icon" href="images/1736497991.png" type="image/png">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="font-sans bg-secondary-100 dark:bg-secondary-50 text-secondary-700">
+    <div id="app" class="min-h-screen">
+        <nav class="bg-secondary-50 dark:bg-secondary-100 dark:border-0 border-b-2 border-secondary-200 relative">
+            <div class="max-w-[1650px] mx-auto block md:flex items-center gap-x-10 px-5">
+                <div class="flex justify-between md:w-auto w-full items-center">
+                    <a href="index.html" class="flex items-center text-secondary-900 font-semibold text-lg py-2 gap-x-2 w-max">
+                        <img src="images/1736497991.png" alt="Keane Dev" class="w-10" />
+                        Keane Dev
+                    </a>
+                    <div class="flex md:hidden">
+                        <button type="button" class="button button-secondary-outline" onclick="openMobileMenu()">
+                            <i class="ri-menu-line"></i>
+                        </button>
+                    </div>
+                    <script>
+                        function openMobileMenu() {
+                            document.getElementById("mobile-menu").classList.toggle("hidden");
+                            document.getElementById("clientsNavBar").classList.toggle("hidden");
+                        }
+                    </script>
+                </div>
+                <div class="w-full justify-between gap-x-5 md:px-3 md:flex hidden" id="mobile-menu">
+                    <a href="index.html"
+                        class="md:px-2 py-3 flex items-center gap-x-1 hover:text-secondary-800 duration-300">
+                        Home
+                    </a>
+                    <a href="shared-hosting.html" 
+                        class="md:px-2 py-3 flex items-center gap-x-1 hover:text-secondary-800 duration-300">
+                        Shared Hosting
+                    </a>
+                    <div class="md:px-2 py-3 flex items-center gap-x-1 text-secondary-500 cursor-not-allowed">
+                        <span>VPS</span>
+                        <span class="text-xs bg-blue-100 dark:bg-secondary-200 text-blue-700 px-2 rounded">SOON</span>
+                    </div>
+                    <div class="md:px-2 py-3 flex items-center gap-x-1 text-secondary-500 cursor-not-allowed">
+                        <span>Dedicated</span>
+                        <span class="text-xs bg-blue-100 dark:bg-secondary-200 text-blue-700 px-2 rounded">SOON</span>
+                    </div>
+                    <a href="website-hosting.html" 
+                        class="md:px-2 py-3 flex items-center gap-x-1 hover:text-secondary-800 duration-300">
+                        Website Hosting
+                    </a>
+                    <div class="ml-auto flex items-center gap-x-1 justify-center md:pb-0 pb-4">
+                        <a href="https://host.keaneaudric.dev/" class="button button-secondary md:flex-none flex-1">
+                            Panel
+                        </a>
+
+                        <button class="m-1.5 button button-secondary-outline !font-normal" id="theme-toggle">
+                            <i class="ri-sun-line hidden dark:block"></i>
+                            <i class="ri-moon-line dark:hidden"></i>
+                        </button>
+                        <script>
+                            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                                '(prefers-color-scheme: dark)').matches));
+
+                            var themeToggleBtn = document.getElementById('theme-toggle');
+                            themeToggleBtn.addEventListener('click', function() {
+                                if (localStorage.getItem('theme')) {
+                                    if (localStorage.getItem('theme') === 'light') {
+                                        document.documentElement.classList.add('dark');
+                                        localStorage.setItem('theme', 'dark');
+                                    } else {
+                                        document.documentElement.classList.remove('dark');
+                                        localStorage.setItem('theme', 'light');
+                                    }
+                                } else {
+                                    if (document.documentElement.classList.contains('dark')) {
+                                        document.documentElement.classList.remove('dark');
+                                        localStorage.setItem('theme', 'light');
+                                    } else {
+                                        document.documentElement.classList.add('dark');
+                                        localStorage.setItem('theme', 'dark');
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="">
+            <div class="w-full flex flex-col min-h-[calc(100vh-64px)]">
+                <main class="grow">
+                    <style>
+                        .content-box {
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                        }
+                        .content-box:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                        }
+                    </style>
+
+                    <div class="content py-8">
+                        <div class="content-box mb-8">
+                            <div class="flex flex-row items-center mb-6">
+                                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-secondary-100 text-blue-500 rounded-md mr-3">
+                                    <i class="fas fa-file-contract text-xl"></i>
+                                </div>
+                                <h1 class="text-3xl font-semibold text-secondary-900">Terms of Service</h1>
+                            </div>
+                            
+                            <div class="prose prose-lg dark:prose-invert max-w-none">
+                                <p>Last Updated: March 13, 2025</p>
+                                <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the services provided by Keane Dev ("we", "us", "our"). By accessing or using our website and services, you agree to be bound by these Terms.</p>
+                                
+                                <h2>1. Acceptance of Terms</h2>
+                                <p>By accessing our website or using our services, you agree to these Terms of Service and any additional terms that may apply. If you do not agree with any of these terms, you are prohibited from using our services.</p>
+                                
+                                <h2>2. Service Description</h2>
+                                <p>Keane Dev provides web hosting services, including but not limited to shared hosting, website hosting, VPS hosting, and dedicated server hosting. We reserve the right to modify, update, or discontinue any aspect of our services at any time without prior notice.</p>
+                                
+                                <h2>3. User Responsibilities</h2>
+                                <h3>3.1 Account Information</h3>
+                                <p>You are responsible for maintaining the confidentiality of your account information and password. You are fully responsible for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account or any other security breach.</p>
+                                
+                                <h3>3.2 Prohibited Uses</h3>
+                                <p>You agree not to use our services for any unlawful purpose or in any way that may:</p>
+                                <ul>
+                                    <li>Violate any applicable laws or regulations</li>
+                                    <li>Infringe on the rights of others</li>
+                                    <li>Distribute malware, viruses, or harmful code</li>
+                                    <li>Engage in phishing, spamming, or any deceptive practices</li>
+                                    <li>Host content promoting violence, discrimination, or illegal activities</li>
+                                    <li>Conduct activities that impose an unreasonable load on our infrastructure</li>
+                                    <li>Attempt to gain unauthorized access to our systems or other user accounts</li>
+                                </ul>
+                                
+                                <h3>3.3 Content Restrictions</h3>
+                                <p>You are solely responsible for any content you upload, publish, display, or transmit through our services. We do not monitor or control user content but reserve the right to remove any content that violates these Terms or that we deem inappropriate.</p>
+                                
+                                <h2>4. Service Limitations</h2>
+                                <p>Our services are subject to limitations such as allocated storage space, bandwidth, processing capacity, and other metrics as specified in your service plan. Exceeding these limitations may result in additional charges or service restrictions.</p>
+                                
+                                <h3>4.1 Fair Use Policy</h3>
+                                <p>While certain plans may include "unmetered" or "unlimited" features, all services are subject to our Fair Use Policy:</p>
+                                <ul>
+                                    <li>We reserve the sole and exclusive right to determine what constitutes "fair use" of our services</li>
+                                    <li>We reserve the right to limit, throttle, suspend, or modify any service that negatively impacts server performance or other users</li>
+                                    <li>We reserve the right to refuse requests for increased storage or resources without disclosing our reasoning</li>
+                                    <li>Services labeled as "unmetered" are still subject to reasonable usage constraints as determined by our team</li>
+                                    <li>Excessive resource usage that impacts system performance may result in service limitations or additional charges</li>
+                                    <li>Our determination of what constitutes excessive or unreasonable usage is final and binding</li>
+                                </ul>
+                                
+                                <h3>4.2 Resource Management</h3>
+                                <p>While we strive to accommodate all reasonable resource requests:</p>
+                                <ul>
+                                    <li>All resource allocations, including storage increases, are provided at our sole discretion</li>
+                                    <li>We may decline resource allocation requests without providing specific reasons</li>
+                                    <li>We may require service plan upgrades for users exceeding their allocated resources</li>
+                                    <li>We maintain final authority on all decisions regarding system resources and their allocation</li>
+                                </ul>
+                                
+                                <h2>5. Payment Terms</h2>
+                                <h3>5.1 Fees and Billing</h3>
+                                <p>You agree to pay all fees associated with your selected service plan. All payments are due in advance and are non-refundable unless otherwise stated in our Refund Policy. Prices are subject to change with notice.</p>
+                                
+                                <h3>5.2 Renewals and Cancellations</h3>
+                                <p>Services will automatically renew unless canceled before the renewal date. You may cancel your service at any time through your account dashboard or by contacting customer support.</p>
+                                
+                                <h2>6. Termination</h2>
+                                <p>We reserve the right to suspend, limit, or terminate your access to our services at any time, with or without cause or prior notice, and without refund, if:</p>
+                                <ul>
+                                    <li>You violate these Terms of Service</li>
+                                    <li>You engage in abusive or harmful behavior</li>
+                                    <li>Your usage negatively impacts our services or other users</li>
+                                    <li>You fail to pay fees when due</li>
+                                    <li>We are required to do so by law</li>
+                                </ul>
+                                <p>Upon termination, you will lose access to all services and data stored on our systems.</p>
+                                
+                                <h2>7. Service Level and Availability</h2>
+                                <p>While we strive to maintain a high level of service availability, we do not guarantee uninterrupted or error-free service. Scheduled maintenance and unforeseen technical issues may cause temporary service interruptions.</p>
+                                
+                                <h2>8. Limitation of Liability</h2>
+                                <p>To the maximum extent permitted by law, Keane Dev shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, use, goodwill, or other intangible losses resulting from:</p>
+                                <ul>
+                                    <li>Your use or inability to use our services</li>
+                                    <li>Any unauthorized access to or use of our servers and/or personal information</li>
+                                    <li>Any interruption or cessation of transmission to or from our services</li>
+                                    <li>Any bugs, viruses, or other harmful code that may be transmitted through our services</li>
+                                </ul>
+                                
+                                <h2>9. Indemnification</h2>
+                                <p>You agree to defend, indemnify, and hold harmless Keane Dev and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees and costs, arising out of or in any way connected with your use of our services or violation of these Terms.</p>
+                                
+                                <h2>10. Changes to Terms</h2>
+                                <p>We reserve the right to modify these Terms at any time. We will notify users of any significant changes by posting the updated Terms on our website. Your continued use of our services after such changes constitutes your acceptance of the new Terms.</p>
+                                
+                                <h2>11. Governing Law</h2>
+                                <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Keane Dev operates, without regard to its conflict of law provisions.</p>
+                                
+                                <h2>12. Contact Information</h2>
+                                <p>If you have any questions about these Terms, please contact us at legal@keaneaudric.dev.</p>
+                                
+                                <h2>13. Legal Status</h2>
+                                <p>Keane Dev is not an officially registered company or corporation. It operates as a service provider under the name of an individual. All services provided and agreements entered into are with the individual operating under the trade name "Keane Dev" and not with a legally registered business entity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12"></div>
+                </main>
+
+                <footer class="bg-secondary-50 dark:bg-secondary-100 border-t border-secondary-200 pt-8 pb-6 mt-auto">
+                    <div class="content">
+                        <div class="mb-8 text-center">
+                            <h3 class="text-xl font-semibold mb-3 text-secondary-900">Keane Dev</h3>
+                            <p class="text-sm text-secondary-600 mb-3 max-w-md mx-auto">Enterprise-grade hosting solutions designed for reliability and performance.</p>
+                            <div class="flex justify-center space-x-3 mt-3">
+                                <a href="https://github.com/keaneaudric01" target="_blank" class="text-secondary-600 hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="max-w-3xl mx-auto mb-8">
+                            <div class="grid grid-cols-3 gap-0">
+                                <div class="text-center px-4">
+                                    <h3 class="text-md font-semibold mb-4 text-secondary-900">Products</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li><a href="shared-hosting.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Shared Hosting</a></li>
+                                        <li><a href="website-hosting.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Website Hosting</a></li>
+                                        <li><a href="virtual-private-server.html" class="text-secondary-600 hover:text-primary-400 transition-colors">VPS (Soon)</a></li>
+                                        <li><a href="dedicated-server.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Dedicated (Soon)</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="text-center px-4 border-x border-secondary-200">
+                                    <h3 class="text-md font-semibold mb-4 text-secondary-900">Support</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li><a href="#" class="text-secondary-600 hover:text-primary-400 transition-colors">Knowledge Base</a></li>
+                                        <li><a href="contact.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Contact Support</a></li>
+                                        <li><a href="#" class="text-secondary-600 hover:text-primary-400 transition-colors">System Status</a></li>
+                                        <li><a href="#" class="text-secondary-600 hover:text-primary-400 transition-colors">Network Info</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="text-center px-4">
+                                    <h3 class="text-md font-semibold mb-4 text-secondary-900">Company</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li><a href="about-us.html" class="text-secondary-600 hover:text-primary-400 transition-colors">About Us</a></li>
+                                        <li><a href="terms-of-service.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Terms of Service</a></li>
+                                        <li><a href="privacy-policy.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Privacy Policy</a></li>
+                                        <li><a href="refund-policy.html" class="text-secondary-600 hover:text-primary-400 transition-colors">Refund Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-secondary-200 pt-4 mt-4 text-sm text-center text-secondary-600">
+                            <p>&copy; 2024-2025 Keane Dev. All rights reserved.</p>
+                            <p class="mt-1">Designed for reliability, built for performance.</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
