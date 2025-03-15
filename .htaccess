@@ -9,3 +9,20 @@ RewriteRule ^([^/]+)/?$ $1.html [L]
 
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R=301]
+
+# Fix for external resources
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect cdnjs.cloudflare.com paths to actual https URLs
+    RewriteCond %{REQUEST_URI} ^/\.\./(.*\.cloudflare\.com/.*)$
+    RewriteRule ^.*$ https://%1 [R=301,L]
+    
+    # Redirect ajax.googleapis.com paths to actual https URLs
+    RewriteCond %{REQUEST_URI} ^/\.\./(.*\.googleapis\.com/.*)$
+    RewriteRule ^.*$ https://%1 [R=301,L]
+    
+    # Redirect cdn.jsdelivr.net paths to actual https URLs
+    RewriteCond %{REQUEST_URI} ^/\.\./(.*\.jsdelivr\.net/.*)$
+    RewriteRule ^.*$ https://%1 [R=301,L]
+</IfModule>

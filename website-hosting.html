@@ -74,6 +74,83 @@
             --secondary-800: #f1f1f1;
             --secondary-900: #ffffff;
         }
+
+        /* Currency dropdown styles */
+        .currency-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .currency-toggle {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            background-color: var(--secondary-50);
+            border: 1px solid var(--secondary-300);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            color: var(--secondary-700);
+        }
+        
+        .dark .currency-toggle {
+            background-color: var(--secondary-100);
+            color: var(--secondary-600);
+        }
+        
+        .currency-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 100;
+            min-width: 120px;
+            background-color: var(--secondary-50);
+            border: 1px solid var(--secondary-300);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-top: 0.25rem;
+        }
+        
+        .dark .currency-menu {
+            background-color: var(--secondary-100);
+            border-color: var(--secondary-200);
+        }
+        
+        .currency-option {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .currency-option:hover {
+            background-color: var(--secondary-200);
+        }
+        
+        .dark .currency-option:hover {
+            background-color: var(--secondary-200);
+        }
+        
+        .currency-flag {
+            margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .currency-flag img {
+            width: 20px;
+            height: 15px;
+            object-fit: cover;
+            vertical-align: middle;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .show-menu {
+            display: block;
+        }
     </style>
     <title>Keane Dev - Website Hosting</title>
     
@@ -89,7 +166,7 @@
     <meta content="Website Hosting" property="og:title">
     <meta content="Optimized hosting solution for websites with easy Virtualmin management, one-click app installations, and enhanced WordPress performance for blogs and business sites." property="og:description">
     <meta content="Optimized hosting solution for websites with easy Virtualmin management, one-click app installations, and enhanced WordPress performance for blogs and business sites." name="description">
-    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="font-sans bg-secondary-100 dark:bg-secondary-50 text-secondary-700">
@@ -135,22 +212,38 @@
                         Website Hosting
                     </a>
                     <div class="ml-auto flex items-center gap-x-1 justify-center md:pb-0 pb-4">
+                        <div class="currency-dropdown mr-2">
+                            <button id="currency-toggle" class="currency-toggle">
+                                <span id="current-flag" class="currency-flag">
+                                    <img src="flags/us.png" alt="USD">
+                                </span>
+                                <span id="current-currency">USD</span>
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div id="currency-menu" class="currency-menu">
+                                <div class="currency-option" data-currency="usd" data-flag="flags/us.png">
+                                    <span class="currency-flag"><img src="flags/us.png" alt="USD"></span>USD
+                                </div>
+                                <div class="currency-option" data-currency="idr" data-flag="flags/id.png">
+                                    <span class="currency-flag"><img src="flags/id.png" alt="IDR"></span>IDR
+                                </div>
+                            </div>
+                        </div>
+                        
                         <a href="https://host.keaneaudric.dev/" class="button button-secondary md:flex-none flex-1">
                             Panel
                         </a>
 
                         <button class="m-1.5 button button-secondary-outline !font-normal" id="theme-toggle">
-                            <i class="ri-sun-line hidden dark:block"></i>
-                            <i class="ri-moon-line dark:hidden"></i>
+                            <img src="images/light-mode.png" alt="Light Mode" class="hidden dark:block h-5 w-5">
+                            <img src="images/dark-mode.png" alt="Dark Mode" class="dark:hidden h-5 w-5">
                         </button>
                         <script>
-                            // Theme toggle code
                             if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia(
                                 '(prefers-color-scheme: dark)').matches));
 
                             var themeToggleBtn = document.getElementById('theme-toggle');
                             themeToggleBtn.addEventListener('click', function() {
-                                // if set via local storage previously
                                 if (localStorage.getItem('theme')) {
                                     if (localStorage.getItem('theme') === 'light') {
                                         document.documentElement.classList.add('dark');
@@ -159,7 +252,6 @@
                                         document.documentElement.classList.remove('dark');
                                         localStorage.setItem('theme', 'light');
                                     }
-                                    // if NOT set via local storage previously
                                 } else {
                                     if (document.documentElement.classList.contains('dark')) {
                                         document.documentElement.classList.remove('dark');
@@ -213,7 +305,7 @@
                                 <div class="flex gap-x-3 items-center mb-3">
                                     <div>
                                         <h3 class="text-lg text-secondary-800 leading-5 font-semibold">🌐 | Starter</h3>
-                                        <p>$1.00 / month</p>
+                                        <p class="price" data-usd="1.00">$1.00 / month</p>
                                     </div>
                                 </div>
                                 <div class="prose dark:prose-invert">
@@ -234,7 +326,7 @@
                                 <div class="flex gap-x-3 items-center mb-3">
                                     <div>
                                         <h3 class="text-lg text-secondary-800 leading-5 font-semibold">🌐 | Regular</h3>
-                                        <p>$3.50 / month</p>
+                                        <p class="price" data-usd="3.50">$3.50 / month</p>
                                     </div>
                                 </div>
                                 <div class="prose dark:prose-invert">
@@ -255,7 +347,7 @@
                                 <div class="flex gap-x-3 items-center mb-3">
                                     <div>
                                         <h3 class="text-lg text-secondary-800 leading-5 font-semibold">🌐 | Performance</h3>
-                                        <p>$7.00 / month</p>
+                                        <p class="price" data-usd="7.00">$7.00 / month</p>
                                     </div>
                                 </div>
                                 <div class="prose dark:prose-invert">
@@ -332,5 +424,65 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceElements = document.querySelectorAll('.price');
+            const conversionRate = 15000; // 1 USD = 15,000 IDR
+            
+            function formatNumber(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            
+            function switchCurrency(currency) {
+                const currentFlag = document.getElementById('current-flag');
+                const currentCurrency = document.getElementById('current-currency');
+                
+                priceElements.forEach(function(element) {
+                    const usdPrice = parseFloat(element.getAttribute('data-usd'));
+                    
+                    if (currency === 'usd') {
+                        element.textContent = '$' + usdPrice.toFixed(2) + ' / month';
+                        currentCurrency.textContent = 'USD';
+                        currentFlag.innerHTML = '<img src="flags/us.png" alt="USD">';
+                    } else {
+                        const idrPrice = usdPrice * conversionRate;
+                        element.textContent = 'Rp ' + formatNumber(idrPrice.toFixed(0)) + ' / month';
+                        currentCurrency.textContent = 'IDR';
+                        currentFlag.innerHTML = '<img src="flags/id.png" alt="IDR">';
+                    }
+                });
+                
+                localStorage.setItem('preferredCurrency', currency);
+                
+                document.getElementById('currency-menu').classList.remove('show-menu');
+            }
+            
+            const currencyToggle = document.getElementById('currency-toggle');
+            const currencyMenu = document.getElementById('currency-menu');
+            
+            currencyToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currencyMenu.classList.toggle('show-menu');
+            });
+            
+            document.addEventListener('click', function() {
+                currencyMenu.classList.remove('show-menu');
+            });
+            
+            const currencyOptions = document.querySelectorAll('.currency-option');
+            currencyOptions.forEach(function(option) {
+                option.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const currency = this.getAttribute('data-currency');
+                    switchCurrency(currency);
+                });
+            });
+            
+            const savedCurrency = localStorage.getItem('preferredCurrency');
+            if (savedCurrency) {
+                switchCurrency(savedCurrency);
+            }
+        });
+    </script>
 </body>
 </html>

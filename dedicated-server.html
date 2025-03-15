@@ -89,7 +89,7 @@
     <meta content="Dedicated Server Hosting - Coming Soon" property="og:title">
     <meta content="Full access to an entire physical server with premium performance, ultimate control, and maximum resources for demanding applications and high-traffic websites." property="og:description">
     <meta content="Full access to an entire physical server with premium performance, ultimate control, and maximum resources for demanding applications and high-traffic websites." name="description">
-    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body class="font-sans bg-secondary-100 dark:bg-secondary-50 text-secondary-700">
@@ -141,8 +141,8 @@
                         </a>
 
                         <button class="m-1.5 button button-secondary-outline !font-normal" id="theme-toggle">
-                            <i class="ri-sun-line hidden dark:block"></i>
-                            <i class="ri-moon-line dark:hidden"></i>
+                            <img src="images/light-mode.png" alt="Light Mode" class="hidden dark:block h-5 w-5">
+                            <img src="images/dark-mode.png" alt="Dark Mode" class="dark:hidden h-5 w-5">
                         </button>
                         <script>
                             if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia(
